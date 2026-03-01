@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow border-0">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">➕ Create New Study Task</h4>
+            </div>
+            <div class="card-body p-4">
+                <form action="{{ url_for('add_task') }}" method="POST">
+                    
+                    <div class="mb-3">
+                        <label for="title" class="form-label fw-bold">Task Title</label>
+                        <input type="text" name="title" id="title" class="form-control" 
+                               placeholder="e.g., Finish Math Assignment" required>
+                        <div class="form-text">What do you need to accomplish?</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="due_date" class="form-label fw-bold">Due Date & Time</label>
+                        <input type="datetime-local" name="due_date" id="due_date" class="form-control">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="description" class="form-label fw-bold">Description (Optional)</label>
+                        <textarea name="description" id="description" class="form-control" 
+                                  rows="3" placeholder="Add specific details or links..."></textarea>
+                    </div>
+
+                    <div class="d-grid gap-2 mt-4">
+                        <button type="submit" class="btn btn-primary btn-lg">Add to Planner</button>
+                        <a href="{{ url_for('index') }}" class="btn btn-link text-muted">Back to Dashboard</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

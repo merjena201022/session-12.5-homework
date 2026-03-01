@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Add Task</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Add New Study Task</h1>
+        <form method="POST">
+            <input type="text" name="subject" placeholder="Subject (e.g. Math)" required>
+            <input type="text" name="plan" placeholder="What needs to be done?" required>
+            <select name="priority">
+                <option value="High">High Priority</option>
+                <option value="Medium" selected>Medium Priority</option>
+                <option value="Low">Low Priority</option>
+            </select>
+            <input type="date" name="deadline" required>
+            <textarea name="notes" placeholder="Optional Notes"></textarea>
+            <button type="submit" class="btn btn-add">Save Task</button>
+            <a href="{{ url_for('index') }}">Back to list</a>
+        </form>
+    </div>
+</body>
+</html>

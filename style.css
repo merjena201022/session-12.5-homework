@@ -1,0 +1,44 @@
+/* LIGHT MODE (Default: White & Yellow) */
+:root {
+    --bg-color: #FCFCFA;
+    --card-bg: #FFFFFF;
+    --text-color: #1A1A1A;
+    --accent-color: #FFDE59; /* Bright Yellow */
+    --nav-bg: #FFFFFF;
+    --border-color: #EEEEEE;
+}
+
+/* DARK MODE (Purple & Dark) */
+body.dark-mode {
+    --bg-color: #121212;
+    --card-bg: #1E1E1E;
+    --text-color: #F0F0F0;
+    --accent-color: #BB86FC; /* Neon Purple */
+    --nav-bg: #1A1A1A;
+    --border-color: #333333;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.navbar {
+    background-color: var(--nav-bg) !important;
+    border-bottom: 3px solid var(--accent-color);
+}
+
+.book-card, .task-card, .calendar-box {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+}
+
+.btn-yellow {
+    background-color: var(--accent-color);
+    color: #000;
+}
+
+/* Ensure status badges still look good */
+.status-badge.reading { background-color: var(--accent-color); color: #000; }

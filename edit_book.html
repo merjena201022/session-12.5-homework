@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="book-card p-5 shadow-sm">
+            <h2 class="fw-800 mb-4">Update "{{ book.title }}"</h2>
+            <form action="{{ url_for('edit_book', book_id=book.id) }}" method="POST">
+                <div class="mb-3">
+                    <label class="form-label fw-bold small opacity-75">BOOK TITLE</label>
+                    <input type="text" name="title" class="form-control border-0 bg-light-input" value="{{ book.title }}" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label fw-bold small opacity-75">STATUS</label>
+                    <select name="status" class="form-select border-0 bg-light-input">
+                        <option value="want_to_read" {% if book.status == 'want_to_read' %}selected{% endif %}>Want to Read</option>
+                        <option value="reading" {% if book.status == 'reading' %}selected{% endif %}>Reading</option>
+                        <option value="finished" {% if book.status == 'finished' %}selected{% endif %}>Finished</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label fw-bold small opacity-75">MY REVIEW</label>
+                    <textarea name="review" class="form-control border-0 bg-light-input" rows="3">{{ book.review }}</textarea>
+                </div>
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-yellow">Save Changes</button>
+                    <a href="/" class="btn btn-link text-muted mt-2">Back to Library</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Specific adjustment for input backgrounds in dark mode */
+    .bg-light-input { background-color: rgba(0,0,0,0.05); color: inherit; }
+    body.dark-mode .bg-light-input { background-color: rgba(255,255,255,0.1); color: #fff; }
+</style>
+{% endblock %}
